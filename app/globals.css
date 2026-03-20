@@ -1,26 +1,39 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; 
+  background-color: #070707;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply antialiased bg-[#070707] text-white;
+  overflow-x: hidden;
 }
+
+/* Optional: Make the scroll slower/smoother for modern browsers */
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Update your existing <style jsx> block */
+.hero-neon-effect {
+  /* Base Neon Blue Color & Glow */
+  color: #00f2ff;
+  text-shadow: 0 0 8px rgba(0, 242, 255, 0.8), 
+               0 0 20px rgba(0, 242, 255, 0.3);
+  
+  /* The "Moving Premium Effect" Gradient */
+  background: linear-gradient(
+    90deg, 
+    rgba(0, 242, 255, 1) 0%, 
+    rgba(255, 255, 255, 1) 50%, 
+    rgba(0, 242, 255, 1) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}/* Hide them by default in CSS, then let GSAP show them */
